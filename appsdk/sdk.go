@@ -154,6 +154,13 @@ func (sdk *AppFunctionsSDK) MQTTSend(addr models.Addressable, cert string, key s
 	return sender.MQTTSend
 }
 
+func (sdk *AppFunctionsSDK) ExecuteNodeFunction(filepath string) func(*appcontext.Context, ...interface{}) (bool, interface{}) {
+	sender := transforms.NodeExecutor{
+		FilePath: filepath,
+	}
+	return sender.NodeExecutor
+}
+
 // MakeItRun will initialize and start the trigger as specifed in the
 // configuration. It will also configure the webserver and start listening on
 // the specified port.

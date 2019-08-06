@@ -65,6 +65,7 @@ func (mqttConfig MqttConfig) SetAutoreconnect(reconnect bool) {
 	mqttConfig.autoreconnect = reconnect
 }
 
+// MQTTSender ...
 type MQTTSender struct {
 	client MQTT.Client
 	topic  string

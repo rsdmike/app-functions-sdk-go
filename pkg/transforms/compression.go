@@ -28,6 +28,7 @@ import (
 	"github.com/edgexfoundry/app-functions-sdk-go/pkg/util"
 )
 
+// Compression ...
 type Compression struct {
 	gzipWriter *gzip.Writer
 	zlibWriter *zlib.Writer

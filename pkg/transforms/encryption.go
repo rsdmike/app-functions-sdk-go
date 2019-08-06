@@ -28,6 +28,7 @@ import (
 	"github.com/edgexfoundry/app-functions-sdk-go/pkg/util"
 )
 
+// Encryption ...
 type Encryption struct {
 	Key                  string
 	InitializationVector string

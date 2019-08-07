@@ -33,13 +33,13 @@ type XMPPSender struct {
 }
 
 // NewXMPPSender ...
-func NewXMPPSender(addr contract.Addressable) *XMPPSender {
+func NewXMPPSender(addr contract.Addressable) (*XMPPSender, error) {
 	protocol := strings.ToLower(addr.Protocol)
 
 	if protocol == "tls" {
 		xmpp.DefaultConfig = tls.Config{
 			ServerName:         serverName(addr.Address),
-			InsecureSkipVerify: false,
+			InsecureSkipVerify: true,
 		}
 	}
 
@@ -47,21 +47,22 @@ func NewXMPPSender(addr contract.Addressable) *XMPPSender {
 		Host:     addr.Address,
 		User:     addr.User,
 		Password: addr.Password,
-		NoTLS:    protocol == "tls",
-		Debug:    false,
+		NoTLS:    protocol != "tls",
+		Debug:    true,
 		Session:  false,
 	}
 
 	xmppClient, err := options.NewClient()
 	if err != nil {
 		// LoggingClient.Error(err.Error())
+		return nil, err
 	}
 
 	sender := &XMPPSender{
 		client: xmppClient,
 	}
 
-	return sender
+	return sender, nil
 }
 
 // XMPPSend ...

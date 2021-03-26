@@ -9,7 +9,7 @@ require (
 	github.com/edgexfoundry/go-mod-bootstrap/v2 v2.0.0-dev.13
 	github.com/edgexfoundry/go-mod-core-contracts/v2 v2.0.0-dev.35
 	github.com/edgexfoundry/go-mod-messaging/v2 v2.0.0-dev.3
-	github.com/edgexfoundry/go-mod-registry/v2 v2.0.0-dev.3
+	github.com/edgexfoundry/go-mod-registry/v2 v2.0.0-dev.4
 	github.com/fxamacker/cbor/v2 v2.2.0
 	github.com/gomodule/redigo v2.0.0+incompatible
 	github.com/google/uuid v1.2.0
